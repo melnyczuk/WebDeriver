@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  web-deriver:
+    build:
+      context: .
+      args:
+        - '51.0131872'
+        - '-0.0312332'
+    command: 'bundle exec ruby ./src/index.rb'
+    depends_on:
+      - chrome
+
+  chrome:
+    image: selenium/standalone-chrome
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - '4444:4444'
+      - '5900:5900'

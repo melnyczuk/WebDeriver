@@ -6,7 +6,14 @@ class Browser
   LEFT_ARROW = "compass-counterclockwise-arrow"
   RIGHT_ARROW = "compass-clockwise-arrow" 
 
-  def initialize() @driver = Selenium::WebDriver.for :chrome end
+  def initialize() 
+    sleep 2
+    @driver = Selenium::WebDriver.for(
+      :remote,
+      url: 'http://chrome:4444/wd/hub',
+      desired_capabilities: :chrome
+    )
+  end
 
   def drag_pegman() (!pegman || !canvas) ? fin : drag_pegman_to_canvas end
   def go_to(url) @driver.get url end

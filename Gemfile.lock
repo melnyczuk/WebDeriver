@@ -19,6 +19,7 @@ PLATFORMS
 
 DEPENDENCIES
   faraday (~> 1.0)
+  ffi (= 1.12.2)
   selenium-webdriver (~> 2.53, >= 2.53.4)
 
 BUNDLED WITH
